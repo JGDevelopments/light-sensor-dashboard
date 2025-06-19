@@ -23,7 +23,7 @@ This data is sent via the Arduino Uno R4 with a light sensor connected. The goal
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/light-sensor-dashboard.git
+git clone https://github.com/JGDevelopments/light-sensor-dashboard.git
 cd light-sensor-dashboard
 
 # 2. Install dependencies
@@ -31,6 +31,7 @@ npm install
 
 # 3. Add your API URL
 echo "NEXT_PUBLIC_API_URL=https://your-api-gateway-url.com/prod/sensor-data" > .env.local
+// request from me if interested 
 
 # 4. Start the dev server
 npm run dev
