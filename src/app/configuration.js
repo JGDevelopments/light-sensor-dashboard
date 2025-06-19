@@ -1,6 +1,7 @@
 //dev, staging base urls and endpoints will go here
+const env = process.env.NEXT_ENVIRONMENT || 'prod';
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
-
-export function getLightHistory () {
-    return "'https://lpv0gaqbb5.execute-api.us-east-1.amazonaws.com/prod/light-history'"
+export function getSensorData () {
+    return `${baseURL}/${env}/sensor-data`
 }

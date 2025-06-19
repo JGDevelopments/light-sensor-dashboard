@@ -1,6 +1,6 @@
 "use client";
 
-import { getLightHistory } from '@/app/configuration';
+import { getSensorData } from '@/app/configuration';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { useEffect, useState } from 'react';
@@ -16,9 +16,9 @@ export default function LineChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(getLightHistory());
+        const res = await fetch(getSensorData());
         const json = await res.json();
-        const formatted = json.map(d => [new Date(d.timestamp).getTime(), d.light]);
+        const formatted = json.map(d => [new Date(d.timestamp).getTime(), d.value]);
         setRawData(formatted);
         setData(formatted); // initially set to full data
       } catch (error) {
