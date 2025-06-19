@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💡 Light Sensor Dashboard
 
-## Getting Started
+A responsive web dashboard for visualizing sensor data using **React**, **Next.js**, and **Highcharts**. Built to fetch and display data from an AWS-powered serverless backend. 
 
-First, run the development server:
+**REAL SENSOR DATA**
+This data is sent via the Arduino Uno R4 with a light sensor connected. The goal is to have a serverless, fun dashboard like product to monitor the environment of my house. More sensors to come....muah-haha 
+
+> Currently supports light sensor data, with plans to support additional sensor types soon.
+
+---
+
+## ⚙️ Tech Stack
+
+- **React / Next.js**
+- **Highcharts**
+- **react-datepicker**
+- **AWS API Gateway + Lambda**
+- **DynamoDB (via sensor microservice)**
+
+---
+
+## 🚀 Setup
 
 ```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/light-sensor-dashboard.git
+cd light-sensor-dashboard
+
+# 2. Install dependencies
+npm install
+
+# 3. Add your API URL
+echo "NEXT_PUBLIC_API_URL=https://your-api-gateway-url.com/prod/sensor-data" > .env.local
+
+# 4. Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📡 API Integration
 
-## Learn More
+The app consumes data in this format:
 
-To learn more about Next.js, take a look at the following resources:
+```json
+[
+  {
+    "deviceId": "device-001",
+    "sensorType": "light",
+    "value": 750,
+    "timestamp": "2025-06-19T14:25:00Z"
+  }
+]
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📈 Features
 
-## Deploy on Vercel
+- Real-time and historical sensor charting  
+- Date range filtering  
+- Responsive and mobile-friendly  
+- Connects to a live AWS serverless backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Future Plans
+
+- Multi-sensor support (temp, humidity, etc.)  
+- Auth (OAuth or AWS Cognito)  
+- Advanced charting: export, zoom, themes  
+- Mock data fallback and offline mode
+
+---
