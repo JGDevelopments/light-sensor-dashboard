@@ -1,8 +1,5 @@
 "use client";
 
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import { useEffect, useState } from 'react';
 import LineChart from '../components/LineChart';
 
 export default function Dashboard() {
